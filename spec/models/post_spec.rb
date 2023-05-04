@@ -73,4 +73,15 @@ describe Post, type: :model do
     last_5_comments = post.recent_comments
     expect(last_5_comments.size).to eq(5)
   end
+
+  it '#update_user_posts_counter' do
+    5.times do
+      Post.create!(
+        title: Faker::Lorem.sentence(word_count: 3),
+        text: Faker::Lorem.paragraph,
+        author:
+      )
+    end
+    expect(author.posts_counter).to eq(5)
+  end
 end
