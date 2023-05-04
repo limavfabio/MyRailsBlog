@@ -27,8 +27,13 @@ end
 
 # Create 200 likes with randomized data
 200.times do
-  Like.create!(
-    author: User.order(Arel.sql('RANDOM()')).first,
-    post: Post.order(Arel.sql('RANDOM()')).first
-  )
+  user = User.order(Arel.sql('RANDOM()')).first
+  post = Post.order(Arel.sql('RANDOM()')).first
+  # But only if the user hasn't liked the post yet
+  unless Like.exists?(author: user, post: post)
+    Like.create!(
+      author: user,
+      post: post
+    )
+  end
 end
