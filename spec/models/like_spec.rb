@@ -15,11 +15,9 @@ describe Like, type: :model do
     )
 
     Like.create!(
-      author_id: author.id,
-      post_id: post.id
+      author:,
+      post:
     )
-
-    post.update(likes_counter: post.likes.count)
 
     expect(post.likes_counter).to eq(1)
   end
