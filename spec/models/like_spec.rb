@@ -14,7 +14,7 @@ describe Like, type: :model do
       author:
     )
 
-    like = Like.create!(
+    Like.create!(
       author_id: author.id,
       post_id: post.id
     )

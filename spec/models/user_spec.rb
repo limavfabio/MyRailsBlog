@@ -19,6 +19,16 @@ describe User, type: :model do
     expect(author).to_not be_valid
   end
 
+  it 'posts_counter is a positive integer' do
+    author = User.new(
+      name: Faker::Name.name,
+      photo: Faker::Avatar.image,
+      bio: Faker::Lorem.sentence,
+      posts_counter: -1
+    )
+    expect(author).to_not be_valid
+  end
+
   it '#recent_posts' do
     author = User.create!(
       name: Faker::Name.name,
