@@ -31,7 +31,12 @@
   <% end %>
 </ul>
 
+<%# Link to new post %>
+<div class="flex space-x-2 my-3">
+  <a href="<%= new_user_post_path(@user.id) %>" class="border-2 w-full text-xl p-2">Create New Post</a>
+</div>
 
+<%# Navigation buttons %>
 <div class="flex space-x-2 my-3">
   <a href="<%= user_posts_path(@user.id) %>" class="border-2 w-full text-xl p-2">See all posts</a>
   <a href="<%= root_path %>" class="border-2 w-full text-xl p-2">Back to users</a>
