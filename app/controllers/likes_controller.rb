@@ -13,6 +13,5 @@ class LikesController < ApplicationController
 
     @like.destroy
     redirect_back(fallback_location: @post)
-
   end
 end
