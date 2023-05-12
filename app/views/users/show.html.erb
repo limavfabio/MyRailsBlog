@@ -22,6 +22,7 @@
       <p class="text-sm mb-2 font-semibold"><%= "Post ##{index + 1}" %></p>
       <p class="text-xl mb-2"><%= link_to post.title, user_post_path(@user, post) %></p>
       <p><%= post.text %></p>
+        <div><%= like_link(post) %></div>
       <div class="flex mt-2 space-x-1 self-end">
         <p class="text-xs"><%= "Number of comments: #{post.comments.count}," %></p>
         <p class="text-xs"><%= "Number of likes: #{post.likes.count}" %></p>
