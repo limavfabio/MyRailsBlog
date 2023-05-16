@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = if params[:limit] == 'all'
+               @user.posts
+             else
+               @user.posts.limit(3)
+             end
   end
 
   def show
