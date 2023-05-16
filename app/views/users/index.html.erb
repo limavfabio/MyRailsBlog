@@ -1,7 +1,7 @@
 <h1 class='text-xl'>All Users</h1>
 
 <ul class="mb-4">
-  <% @users.includes(:posts).each do |user| %>
+  <% @users.each do |user| %>
     <li class="flex mt-4 space-x-3">
 
       <%= link_to user_path(user.id) do %>
