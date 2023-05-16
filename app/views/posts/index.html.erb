@@ -7,7 +7,7 @@
 
   <div class="flex flex-col justify-center border-2 pl-3 h-20 grow">
     <p class="text-xl"><%= link_to @user.name, user_path(@user.id) %></p>
-    <p class="self-end text-sm pr-2"><%= link_to "Number of posts: #{@posts.count}", user_posts_path(@user.id) %></p>
+    <p class="self-end text-sm pr-2"><%= link_to "Number of posts: #{@user.posts.count}", user_posts_path(@user.id) %></p>
   </div>
 
 </div>
