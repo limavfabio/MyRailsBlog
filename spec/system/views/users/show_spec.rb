@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'User#Show', type: :system do
   describe 'The User#Show page' do
-    
     it 'displays the profile picture of ALL users' do
       User.all.each do |user|
         visit user_path(user.id)
@@ -36,7 +35,6 @@ RSpec.describe 'User#Show', type: :system do
       User.first.posts.take(3).each do |post|
         expect(page).to have_content(post.title)
       end
-      
     end
 
     it 'displays the "See all posts" button of ALL users' do
@@ -65,6 +63,5 @@ RSpec.describe 'User#Show', type: :system do
         visit user_path(user.id)
       end
     end
-
   end
 end

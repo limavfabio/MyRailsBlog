@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'User#Index', type: :system do
   describe 'The User#Index page' do
     it 'display all usernames' do
-        visit users_path
-      
-        User.all.each do |user|
-          expect(page).to have_content(user.name)
-        end
+      visit users_path
+
+      User.all.each do |user|
+        expect(page).to have_content(user.name)
+      end
     end
   end
 
@@ -27,11 +27,11 @@ RSpec.describe 'User#Index', type: :system do
 
       User.all.each do |user|
         expect(page).to have_content(user.posts.count)
-      end      
+      end
     end
   end
 
-  describe 'when clicking on a username' do  
+  describe 'when clicking on a username' do
     it 'redirects to the user profile page on ALL users' do
       visit users_path
 

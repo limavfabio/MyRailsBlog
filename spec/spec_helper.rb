@@ -18,7 +18,6 @@ require 'capybara/rspec'
 Capybara.default_driver = :selenium_chrome # Use Chrome driver for tests
 Capybara.server = :puma # Use Puma as the test server
 
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
