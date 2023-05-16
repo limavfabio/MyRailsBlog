@@ -26,8 +26,19 @@ RSpec.describe 'Post#Index', type: :system do
     it 'displays the posts title' do
       User.all.each do |user|
         visit user_posts_path(user.id)
-        user.posts.each do |post|
+        user.posts.take(3).each do |post|
           expect(page).to have_content(post.title)
+        end
+      end
+    end
+
+    it 'displays the See more button' do
+      User.all.each do |user|
+        visit user_posts_path(user.id)
+        if user.posts.count > 3
+          expect(page).to have_content('Show more posts')
+        else
+          expect(page).to_not have_content('Show more posts')
         end
       end
     end
@@ -35,7 +46,7 @@ RSpec.describe 'Post#Index', type: :system do
     it 'displays the posts text' do
       User.all.each do |user|
         visit user_posts_path(user.id)
-        user.posts.each do |post|
+        user.posts.take(3).each do |post|
           expect(page).to have_content(post.text)
         end
       end
@@ -53,7 +64,7 @@ RSpec.describe 'Post#Index', type: :system do
     it 'displays the comments counter' do
       User.all.each do |user|
         visit user_posts_path(user.id)
-        user.posts.each do |post|
+        user.posts.take(3).each do |post|
           expect(page).to have_content(post.comments_counter)
         end
       end
@@ -71,7 +82,7 @@ RSpec.describe 'Post#Index', type: :system do
     it 'redirects to the post when clicked on' do
       User.all.each do |user|
         visit user_posts_path(user.id)
-        user.posts.each do |post|
+        user.posts.take(3).each do |post|
           click_on post.title
           expect(page).to have_current_path(user_post_path(user.id, post.id))
           visit user_posts_path(user.id)
