@@ -6,7 +6,8 @@
     <div class="flex mt-2 space-x-1 self-end">
       <p class="text-xs"><%= "Number of comments: #{@post.comments.count}," %></p>
       <p class="text-xs"><%= "Number of likes: #{@post.likes.count}" %></p>
-    </div>
+      </div>
+      <p class="self-end text-sm py-3"><%= "Author: #{@post.author.name}" %></p>
   </div>
 
   <%# Like/Unlike Button %>
