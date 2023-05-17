@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = if params[:limit] == 'all'
-               @user.posts
+               @user.posts.includes(:comments)
              else
-               @user.posts.limit(3)
+               @user.posts.includes(:comments).limit(3)
              end
   end
 
