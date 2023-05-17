@@ -32,7 +32,7 @@ RSpec.describe 'Post#Index', type: :system do
       end
     end
 
-    it 'displays the See more button' do
+    it 'displays the pagination button if there are more posts that fit in the view' do
       User.all.each do |user|
         visit user_posts_path(user.id)
         if user.posts.count > 3
