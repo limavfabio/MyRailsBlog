@@ -1,8 +1,14 @@
 <%# Profile banner %>
 <div class="flex mt-4 space-x-3">
 
-  <%= link_to user_path(@user.id) do %>
-    <p class="border-2"><%= image_tag(@user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
+  <% if @user.photo %>
+    <%= link_to user_path(@user.id) do %>
+      <p class="border-2"><%= image_tag(@user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
+    <% end %>
+  <% else %>
+    <%= link_to user_path(@user.id) do %>
+      <p class="border-2"><%= image_tag('default-user-icon.jpg', size: "76x76", alt: "robohash generated avatar") %></p>
+    <% end %>
   <% end %>
 
   <div class="flex flex-col justify-center border-2 pl-3 h-20 grow">
