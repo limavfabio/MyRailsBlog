@@ -23,6 +23,12 @@
   <a href="<%= new_user_post_path(@user.id) %>" class="border-2 w-full text-xl p-2">Create New Post</a>
 </div>
 
+<% if @user.posts.empty? %>
+  <div class="border-2 p-2 my-3">
+    <p class='text-sm italic'><%= "This user has not written any posts yet." %></p>
+  </div>
+<% else %>
+
 <%# Posts listing %>
 <ul class="space-y-3 mt-3 mb-4">
   <% @posts.each_with_index do |post, index| %>
@@ -53,6 +59,8 @@
     </li>
   <% end %>
 </ul>
+
+<% end  %>
 
 <% if @user.posts.count > 3 %>
   <div class="flex justify-center w-full">
