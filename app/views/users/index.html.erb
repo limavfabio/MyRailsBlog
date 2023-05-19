@@ -1,8 +1,8 @@
-<div class='flex justify-end'>
-  <div>
+<div>
+  <div class='flex flex-col items-end'>
     <% if user_signed_in? %>
-      <div>Logged in as <%= current_user.name %></div>
-      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'see-all btn' %>
+      <div class=''>Logged in as <%= current_user.name %></div>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-secondary' %>
     <% else %>
         <%= link_to 'Login', new_user_session_path, class: 'see-all btn' %>
         <%= link_to 'Sign Up', new_user_registration_path, class: 'see-all btn pad-left' %>
