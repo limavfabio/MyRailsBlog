@@ -1,7 +1,15 @@
 <div class="flex mt-4 space-x-3">
 
-  <p class="border-2"><%= image_tag(@user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
-  
+  <% if @user.photo %>
+    <%= link_to user_path(@user.id) do %>
+      <p class="border-2"><%= image_tag(@user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
+    <% end %>
+  <% else %>
+    <%= link_to user_path(@user.id) do %>
+      <p class="border-2"><%= image_tag('default-user-icon.jpg', size: "76x76", alt: "robohash generated avatar") %></p>
+    <% end %>
+  <% end %>
+
   <div class="flex flex-col justify-center border-2 pl-3 h-20 grow">
     <p class="text-xl"><%= @user.name %></p>
     <p class="self-end text-sm pr-2"><%= link_to "Number of posts: #{@user.posts.count}", user_posts_path(@user.id) %></p>
@@ -12,7 +20,13 @@
 <%# Bio %>
 <div class="border-2 p-2 my-3">
   <h3 class="text-xl mb-2">Bio</h3>
-  <p><%= @user.bio %></p>
+  <% if @user.bio %>
+   <p><%= @user.bio %></p>
+  <% else %>
+    <p class='text-sm italic'><%= "This user has not written a bio yet." %></p>
+  <% end %>
+
+
 </div>
 
 <%# 3 first posts %>

@@ -1,11 +1,27 @@
+<div>
+  <div class='flex flex-col items-end'>
+    <% if user_signed_in? %>
+      <div class=''>Logged in as <%= current_user.name %></div>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-secondary' %>
+    <% else %>
+        <%= link_to 'Login', new_user_session_path, class: 'see-all btn' %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'see-all btn pad-left' %>
+    <% end %>
+  </div>
+</div>
+
 <h1 class='text-xl'>All Users</h1>
 
 <ul class="mb-4">
   <% @users.each do |user| %>
     <li class="flex mt-4 space-x-3">
 
-      <%= link_to user_path(user.id) do %>
-        <p class="border-2"><%= image_tag(user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
+      <% if user.photo %>
+        <%= link_to user_path(user.id) do %>
+          <p class="border-2"><%= image_tag(user.photo, size: "76x76", alt: "robohash generated avatar") %></p>
+        <% end %>
+      <% else %>
+          <p class="border-2"><%= image_tag('default-user-icon.jpg', size: "76x76", alt: "robohash generated avatar") %></p>
       <% end %>
 
       <div class="flex flex-col justify-center border-2 pl-3 h-20 grow">

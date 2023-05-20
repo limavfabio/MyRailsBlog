@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply py-2 px-4 bg-blue-700 rounded text-gray-200;
+  }
+
+  .btn-secondary {
+    @apply py-2 px-4 bg-gray-200 rounded text-gray-700;
+  }
+
+  .input-primary {
+    @apply w-full;
   }
 }
-
-*/
