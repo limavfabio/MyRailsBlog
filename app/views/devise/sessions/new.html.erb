@@ -1,15 +1,13 @@
-<h2 class="text-xl">Log in</h2>
-
 <div class="flex flex-col items-center gap-y-2">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html =>{:class => "w-2/3"}) do |f| %>
     <div class="flex flex-col gap-y-2">
       <div class="field input-primary">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full" %>
       </div>
       <div class="field input-primary">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-full" %>
       </div>
       <% if devise_mapping.rememberable? %>
         <div class="field input-secondary mb-3">
@@ -19,7 +17,7 @@
       <% end %>
     </div>
 
-    <div class="actions btn-primary">
+    <div class="actions btn-primary w-full">
       <%= f.submit "Log in" %>
     </div>
   <% end %>
